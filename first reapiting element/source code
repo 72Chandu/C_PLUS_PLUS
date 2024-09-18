@@ -1,0 +1,30 @@
+// geegs for geek   first repeating element 
+1 5 3 4 3 5 6
+0 1 2 3 4 5 6
+
+//find the first repeating -> geeks
+1 5 3 4 3 5 6 -> pick one-one from ele starting and check this elemet is present in array if present return 
+int findfirstrepeating(int a[], int n){
+    // for(int i=0;i<n;i++){
+    //     bool flag= false;
+    //     for(int j=i+1;j<n;j++){
+    //         if(a[i]==a[j]){
+    //             flag=true;
+    //             return i+1;
+    //         }
+    //     }
+    // }
+    // return -1;    // t.c=o(n^2)  tle
+// m2 
+
+    unordered_map<int int>m;
+    for(int i=0;i<n;i++){
+        m[a[i]]++;
+    }
+    for(int i=0;i<n;i++){
+        if(m[a[i]]>1) return i+1;
+        else return -1;
+    }
+    return -1;  // t.c=o(n)
+} 
+

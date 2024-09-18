@@ -1,0 +1,67 @@
+
+void printRowWiseSum(int arr[][3], int r, int c){
+    for(int i=0;i<r;i++){
+        int sum=0;
+        for(int j=0;j<c;j++){
+            sum=sum+arr[i][j];
+        }
+        cout<<sun<<endl;
+    }
+}
+
+void printColumeWiseSum(int arr[][3], int r, int c){
+    for(int i=0;i<c;i++){
+        int sum=0;
+        for(int j=0;j<r;j++){
+            sum=sum+arr[j][i];
+        }
+        cout<<sun<<endl;
+    }
+}
+
+bool findkey(int a[][3], int r, int c, int k){
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            if(a[i][j]==k) return true;
+        }
+        cout<<sun<<endl;
+    }
+    return false;
+}
+
+int getmax(int arr[][3], int r, int c){
+    int max=INT_MIN;
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            if(a[i][j]>max) max=arr[i][j];
+        }
+    }
+    return max;
+}
+
+
+int getmin(int arr[][3], int r, int c){
+    int min=INT_MAX;
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            if(a[i][j]<min) min=arr[i][j];
+        }
+    }
+    return min;
+}
+
+void tranpose(int arr[][3], int r, int c){
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            swap(arr[i][j], arr[j][i])
+        }
+    }
+}
+// m-2
+void tranpose(int arr[][3], int r, int c, int tranpose[][3]){
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            tranpose[j][i]=arr[i][j];
+        }
+    }
+}

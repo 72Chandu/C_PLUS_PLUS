@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main(){
+    int a[7]={1,2,3,6,5,4,8};
+    int x=6;
+    int check=0;
+    for(int i=0;i<=6;i++){
+        if(a[i]==x){
+            printf("%d",x);
+            check=1;
+            break;
+        }
+    }
+    if(check==0){
+        printf("%d is not present",x);
+    }
+    else{
+        printf("%d is present",x);
+    }
+    return 0;
+}
