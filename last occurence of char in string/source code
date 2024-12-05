@@ -1,0 +1,21 @@
+/*
+s=abcddedg  target=d  o/p=6 
+m 1 => for(0 to n) if(a[i]=='d') idx=i => return idx
+m2=> same as above but for(n to 0)
+m3=> stl function 
+m4=> m1/m2 + recurrsion
+*/
+void lastoccurence(string &s, char x, int i, int & ans){
+    if(i<s.size()) return;
+    if(s[i]==x){
+        ans=i;
+        return;
+    } 
+    lastoccurence(s,x,i+1,ans)
+}lastoccurence(s,x,0,ans)
+
+void lastoccurence(string &s, char x, int i, int & ans){
+    if(i>=s.size()) return;
+    if(s[i]==x) ans=i;
+    lastoccurence(s,x,i-1,ans)
+}lastoccurence(s,x,n-1,ans)
