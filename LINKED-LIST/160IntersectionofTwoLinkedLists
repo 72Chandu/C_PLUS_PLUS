@@ -1,0 +1,39 @@
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        int l1=getLength(headA);
+        int l2=getLength(headB);
+        ListNode*ptr1=headA;
+        ListNode*ptr2=headB;
+        // Move the longer list's pointer ahead by the difference in lengths
+        if (l1 > l2){
+            int k=l1 - l2;
+            while (k--){
+                ptr1=ptr1->next;
+            }
+        } else {
+            int k=l2 - l1;
+            while (k--) {
+                ptr2=ptr2->next;
+            }
+        }
+        // Traverse both lists simultaneously until an intersection is found
+        while (ptr1 != NULL && ptr2 != NULL) {
+            if (ptr1 == ptr2) {
+                return ptr1; // Intersection found
+            }
+            ptr1=ptr1->next;
+            ptr2=ptr2->next;
+        }
+        return NULL; // No intersection found
+    }
+    int getLength(ListNode *head) {
+        int length = 0;
+        ListNode *temp = head;
+        while (temp != NULL) {
+            length++;
+            temp = temp->next;
+        }
+        return length;
+    }
+};
