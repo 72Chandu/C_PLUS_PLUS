@@ -1,0 +1,11 @@
+A Trie (pronounced "try") is a tree-like data structure used to efficiently store and retrieve strings, especially useful for:
+Autocomplete systems
+Spell checking
+Prefix searching
+
+Each node in a Trie represents a character of a word.
+Each node has:
+A map or array of child nodes (for each possible character).
+A boolean flag to mark the end of a word.
+Root node is empty ("").
+Insert/Search/Delete operate in O(length of word) time.
