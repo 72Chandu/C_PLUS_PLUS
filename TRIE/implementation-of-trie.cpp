@@ -93,6 +93,10 @@ mark isEndOfWord = true ✅ at 'e' node
                  |
                [19] -- 't' (✔️ "cat")
 
+
+//searching 
+true if the word exists (i.e., all its characters are in the Trie and it ends at a node marked isEndOfWord = true
+
 */
 #include<bits/stdc++.h>
 using namespace std;
@@ -137,6 +141,16 @@ class Trie{
     void printAllWords(){
         dfs(root, "");
     }
+    bool search(string word){
+        TrieNode* node=root;
+        for(char ch:word){
+            int idx=ch-'a';
+            if(node->children[idx]==nullptr) return false; //curr char is not in trie
+            node=node->children[idx]; //move to the next node
+        }
+        return node->isEndOfWord;
+    }
+    
 };
 int main(){
     Trie trie;
@@ -144,10 +158,12 @@ int main(){
     trie.insert("apple");
     trie.insert("app");
     trie.printAllWords();
+    cout<<trie.search("cat")<<endl; // 1
     return 0;
 }
 /* o/p
 app
 apple
 cat
+1
 */
