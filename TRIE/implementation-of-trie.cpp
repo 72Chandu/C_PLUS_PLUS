@@ -94,3 +94,60 @@ mark isEndOfWord = true ✅ at 'e' node
                [19] -- 't' (✔️ "cat")
 
 */
+#include<bits/stdc++.h>
+using namespace std;
+struct TrieNode{
+    TrieNode* children[26];
+    bool isEndOfWord;
+    TrieNode(){
+        isEndOfWord=false;
+        for(int i=0;i<26;i++){
+            children[i]=nullptr;
+        }
+    }
+};
+class Trie{
+    public:
+    TrieNode* root;
+    Trie(){
+        root=new TrieNode();
+    }
+    void insert(string word){
+        TrieNode* node=root;
+        for(char c:word){
+            int idx=c-'a';
+            if(node->children[idx]==nullptr){
+                node->children[idx]=new TrieNode();
+            }
+            node=node->children[idx];
+        }
+        node->isEndOfWord=true;
+    }
+    void dfs(TrieNode* node, string currWord){
+        if(node->isEndOfWord){
+            cout<<currWord<<endl;
+        }
+        for(int i=0;i<26;i++){
+            if(node->children[i]!=nullptr){
+                char c='a'+i;
+                dfs(node->children[i], currWord+c);
+            }
+        }
+    }
+    void printAllWords(){
+        dfs(root, "");
+    }
+};
+int main(){
+    Trie trie;
+    trie.insert("cat");
+    trie.insert("apple");
+    trie.insert("app");
+    trie.printAllWords();
+    return 0;
+}
+/* o/p
+app
+apple
+cat
+*/
