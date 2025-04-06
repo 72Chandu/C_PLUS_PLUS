@@ -150,6 +150,15 @@ class Trie{
         }
         return node->isEndOfWord;
     }
+    bool startsWith(string prefix){
+        TrieNode* node=root;
+        for(char ch:prefix){
+            int idx=ch-'a';
+            if(node->children[idx]==nullptr) return false; //curr char is not in trie
+            node=node->children[idx]; //move to the next node
+        }
+        return true;
+    }
     
 };
 int main(){
@@ -159,11 +168,13 @@ int main(){
     trie.insert("app");
     trie.printAllWords();
     cout<<trie.search("cat")<<endl; // 1
+    cout<<trie.startsWith("app")<<endl; // 1
     return 0;
 }
 /* o/p
 app
 apple
 cat
+1
 1
 */
